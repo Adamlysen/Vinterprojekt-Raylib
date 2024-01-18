@@ -42,3 +42,4 @@ c:\Users\Adam.lysen\Desktop\VS CODE\Vinterprojekt\Vinterprojekt Adam Lysén TE22
 c:\Users\Adam.lysen\Desktop\VS CODE\Vinterprojekt\Vinterprojekt Adam Lysén TE22D\obj\Debug\net7.0\Vinterprojekt Adam Lysén TE22D.pdb
 c:\Users\Adam.lysen\Desktop\VS CODE\Vinterprojekt\Vinterprojekt Adam Lysén TE22D\obj\Debug\net7.0\Vinterprojekt Adam Lysén TE22D.genruntimeconfig.cache
 c:\Users\Adam.lysen\Desktop\VS CODE\Vinterprojekt\Vinterprojekt Adam Lysén TE22D\obj\Debug\net7.0\ref\Vinterprojekt Adam Lysén TE22D.dll
+c:\Users\Adam.lysen\Desktop\VS CODE\Vinterprojekt\Vinterprojekt Adam Lysén TE22D\obj\Debug\net7.0\Vinterprojekt Adam Lysén TE22D.sourcelink.json

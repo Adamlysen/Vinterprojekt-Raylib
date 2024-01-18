@@ -9,3 +9,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Vinterprojekt_Adam_Lysén_TE22D
 build_property.ProjectDir = c:\Users\Adam.lysen\Desktop\VS CODE\Vinterprojekt\Vinterprojekt Adam Lysén TE22D\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
