@@ -27,7 +27,7 @@ class Program
         int pointheight = 25;
 
 
-
+        bool movement = true;
         bool scenestart = true;
         bool scenegame1 = false;
         bool scenegame2 = false;
@@ -45,7 +45,7 @@ class Program
             {1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,0,0,0,0,0,0,0,0,1,0},
             {1,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,1,1,0,0,1,1,1,1,0,0,0,0},
+            {1,1,1,0,0,1,1,1,1,0,0,1,0},
             {1,1,1,0,0,1,1,1,1,0,0,1,0},
             {1,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -86,13 +86,11 @@ class Program
                 {
                     scenestart = false;
                     scenegame1 = true;
-
                 }
             }
 
             while (scenegame1)
             {
-
 
                 Vector2 enemycenter = new Vector2(enemyx, enemyy);
                 Vector2 playercenter = new Vector2(player1x, player1y);
@@ -109,6 +107,7 @@ class Program
                 {
                     Raylib.DrawRectangleRec(wall, Color.BROWN);
                 }
+
 
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
@@ -130,13 +129,13 @@ class Program
 
 
 
+
                 //Rectangle playerRect = new Rectangle(player1x, player1y, player1width, player1height);
                 //Rectangle enemyRect = new Rectangle(enemyx, enemyy, goalexpandx, goalexpandy);
                 Rectangle point1 = new Rectangle(point1xpos, point1ypos, pointwidth, pointheight);
                 Rectangle point2 = new Rectangle(point2xpos, point2ypos, pointwidth, pointheight);
                 Rectangle point3 = new Rectangle(point3xpos, point3ypos, pointwidth, pointheight);
 
-                int wallradius = 50;
 
 
 
@@ -213,7 +212,7 @@ class Program
                 {
                     player1y -= 8;
                 }
-                if (player1y < 75)
+                if (player1y < 100)
                 {
                     player1y += 8;
                 }
@@ -221,8 +220,6 @@ class Program
                 Raylib.DrawText(currentlevel + levelamount, 900, 50, 40, Color.WHITE);
 
                 Raylib.EndDrawing();
-
-
 
             }
 
