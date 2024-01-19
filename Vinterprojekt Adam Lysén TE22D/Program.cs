@@ -16,12 +16,12 @@ class Program
         int player1y = 150;
         int player1height = playerradius;
         int player1width = playerradius;
-        int enemyx = 1400;
-        int enemyy = 300;
+        int enemyx = 1300;
+        int enemyy = 150;
         int point1xpos = 300;
-        int point1ypos = 850;
-        int point2xpos = 400;
-        int point2ypos = 270;
+        int point1ypos = 885;
+        int point2xpos = 1000;
+        int point2ypos = 135;
         int point3xpos = 1600;
         int point3ypos = 450;
         int pointwidth = 25;
@@ -177,7 +177,7 @@ class Program
 
 
                 Raylib.DrawCircleV(playercenter, playerradius, Color.BLUE);
-                Raylib.DrawCircleV(enemycenter, enemyradius, Color.RED);
+                Raylib.DrawCircleV(enemycenter, enemyradius, Color.PURPLE);
 
 
 
@@ -242,7 +242,7 @@ class Program
             {
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.DARKGRAY);
-                Raylib.DrawCircle(player1x, player1y, levelradius2, Color.RED);
+                Raylib.DrawCircle(player1x, player1y, levelradius2, Color.PURPLE);
                 if (scenegame2 == true)
                 {
                     levelradius2 -= 50;
@@ -316,9 +316,9 @@ class Program
                     player1y = 150;
                     enemyradius = 50;
                     point1xpos = 300;
-                    point1ypos = 850;
-                    point2xpos = 400;
-                    point2ypos = 270;
+                    point1ypos = 885;
+                    point2xpos = 1000;
+                    point2ypos = 135;
                     point3xpos = 1600;
                     point3ypos = 450;
                     pointamount = 0;

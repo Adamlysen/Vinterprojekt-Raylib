@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vinterprojekt Adam Lysén TE22D")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d85358a96a78d90eb72a62c0718de61463a120c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+946dd9eee6f28d423b348a8f3ba5dad73f6d5175")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vinterprojekt Adam Lysén TE22D")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vinterprojekt Adam Lysén TE22D")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
