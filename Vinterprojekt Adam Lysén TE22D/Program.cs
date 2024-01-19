@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using Raylib_cs;
@@ -10,9 +11,9 @@ class Program
         Raylib.InitWindow(1920, 1080, "Hello");
         // Raylib.ToggleFullscreen();
         Raylib.SetTargetFPS(60);
-        int playerradius = 50;
-        int player1x = 200;
-        int player1y = 300;
+        int playerradius = 25;
+        int player1x = 150;
+        int player1y = 150;
         int player1height = playerradius;
         int player1width = playerradius;
         int enemyx = 1400;
@@ -31,7 +32,12 @@ class Program
         bool scenestart = true;
         bool scenegame1 = false;
         bool scenegame2 = false;
+        bool Gameover = false;
         string starttext = "Press SPACE to start!";
+        string dnt = "Do not touch the walls!";
+        string gm = "GAME OVER";
+        string res = "Press enter to restart";
+        string end = "Press ESC to exit";
         int pointamount = 0;
         int levelamount = 1;
         string pointcount = "Points: ";
@@ -42,17 +48,23 @@ class Program
 
         float levelradius2 = 2500;
         int[,] grid = {
-            {1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,0,0,0,0,0,0,0,0,1,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,1,1,0,0,1,1,1,1,0,0,1,0},
-            {1,1,1,0,0,1,1,1,1,0,0,1,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,1,1,1,1,1,1,1,1,1,1,1,1}
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1},
+            {1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1},
+            {1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1},
+            {1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0,0,0,1,1,1},
+            {1,0,0,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,1,1,0,0,0,1,1,1},
+            {1,0,0,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,1,1,0,0,0,1,1,1},
+            {1,0,0,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,1,0,0,0,1,1,1},
+            {1,0,0,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,1,0,0,0,1,1,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
 
-        int tileSize = 145;
+        int tileSize = 75;
 
         List<Rectangle> walls = new();
 
@@ -80,6 +92,7 @@ class Program
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.RAYWHITE);
                 Raylib.DrawText(starttext, 600, 500, 60, Color.BLACK);
+                Raylib.DrawText(dnt, 700, 800, 40, Color.BLACK);
                 Raylib.EndDrawing();
 
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
@@ -103,31 +116,43 @@ class Program
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.DARKGRAY);
 
+
+
                 foreach (Rectangle wall in walls)
                 {
-                    Raylib.DrawRectangleRec(wall, Color.BROWN);
+                    Raylib.DrawRectangleRec(wall, Color.RED);
                 }
 
 
 
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
+                foreach (Rectangle wall in walls)
                 {
-                    player1x += 8;
-                }
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
-                {
-                    player1x -= 8;
-                }
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
-                {
-                    player1y += 8;
-                }
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_W))
-                {
-                    player1y -= 8;
+                    bool collision = Raylib.CheckCollisionCircleRec(playercenter, playerradius, wall);
+
+                    if (collision == true)
+                    {
+                        scenegame1 = false;
+                        Gameover = true;
+                    }
                 }
 
 
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_D) && movement == true)
+                {
+                    player1x += 6;
+                }
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_A) && movement == true)
+                {
+                    player1x -= 6;
+                }
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_S) && movement == true)
+                {
+                    player1y += 6;
+                }
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && movement == true)
+                {
+                    player1y -= 6;
+                }
 
 
                 //Rectangle playerRect = new Rectangle(player1x, player1y, player1width, player1height);
@@ -136,8 +161,10 @@ class Program
                 Rectangle point2 = new Rectangle(point2xpos, point2ypos, pointwidth, pointheight);
                 Rectangle point3 = new Rectangle(point3xpos, point3ypos, pointwidth, pointheight);
 
-
-
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
+                {
+                    return;
+                }
 
 
 
@@ -178,16 +205,19 @@ class Program
                 {
                     point1xpos = -2000;
                     pointamount += 1;
+                    Console.Beep(500, 200);
                 }
                 if (areOverlapping3 == true)
                 {
                     point2xpos = -2100;
                     pointamount += 1;
+                    Console.Beep(500, 200);
                 }
                 if (areOverlapping4 == true)
                 {
                     point3xpos = 2200;
                     pointamount += 1;
+                    Console.Beep(500, 200);
                 }
 
 
@@ -200,22 +230,7 @@ class Program
                 // Raylib.DrawRectangleRec(playerRect, Color.BLACK);
 
 
-                if (player1x > 1870)
-                {
-                    player1x -= 8;
-                }
-                if (player1x < 50)
-                {
-                    player1x += 8;
-                }
-                if (player1y > 1030)
-                {
-                    player1y -= 8;
-                }
-                if (player1y < 100)
-                {
-                    player1y += 8;
-                }
+
                 Raylib.DrawText(pointcount + pointamount + "/3", 50, 50, 40, Color.WHITE);
                 Raylib.DrawText(currentlevel + levelamount, 900, 50, 40, Color.WHITE);
 
@@ -282,6 +297,38 @@ class Program
                 Raylib.DrawText(currentlevel + levelamount, 900, 50, 40, Color.WHITE);
                 Raylib.EndDrawing();
 
+            }
+
+            while (Gameover == true)
+            {
+                Raylib.BeginDrawing();
+                Raylib.ClearBackground(Color.BLACK);
+                Raylib.DrawText(gm, 750, 400, 50, Color.WHITE);
+                Raylib.DrawText(res, 700, 600, 40, Color.WHITE);
+                Raylib.DrawText(end, 700, 700, 40, Color.WHITE);
+
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
+                {
+                    Gameover = false;
+                    scenegame1 = true;
+
+                    player1x = 150;
+                    player1y = 150;
+                    enemyradius = 50;
+                    point1xpos = 300;
+                    point1ypos = 850;
+                    point2xpos = 400;
+                    point2ypos = 270;
+                    point3xpos = 1600;
+                    point3ypos = 450;
+                    pointamount = 0;
+                    levelamount = 1;
+                }
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
+                {
+                    return;
+                }
+                Raylib.EndDrawing();
             }
         }
     }
