@@ -302,17 +302,7 @@ class Program
                     player1y += 8;
                 }
 
-                int attackerxpos = Random.Shared.Next(100, 1800);
-                int attackerypos = 100;
-
                 
-
-                Raylib.DrawRectangle(attackerxpos, attackerypos, 25, 25, Color.BLACK);
-
-                attackerypos += 4;
-
-
-
 
 
                 // Raylib.DrawRectangleRec(playerRect, Color.BLACK);
