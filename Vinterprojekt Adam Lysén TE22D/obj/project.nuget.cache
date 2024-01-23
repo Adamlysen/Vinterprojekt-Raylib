@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NoIA+Tt2xOazRzeV4KF/vVOcBdz9fQJIJUJQamIGkR3mpGG6GWr0ReVXJUWCpKHItihVb3P7fBUO+BGTYWQAsg==",
+  "dgSpecHash": "8c/3SijqQcRNkhmiXRJFPc/KZZnHD4NQNdmsWafUAAvMTel52gk4uFYPksg2NxUvTDkaCJExIccq2QFKzz3Hjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj",
+  "projectFilePath": "c:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adam.lysen\\.nuget\\packages\\raylib-cs\\5.0.0\\raylib-cs.5.0.0.nupkg.sha512",
     "C:\\Users\\Adam.lysen\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"

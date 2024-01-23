@@ -175,6 +175,12 @@ class Program
                     return;
                 }
 
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_HOME))
+                {
+                    scenegame1 = false;
+                    scenegame2 = true;
+                }
+
 
 
                 bool areOverlapping1 = Raylib.CheckCollisionCircles(playercenter, playerradius, enemycenter, enemyradius);
@@ -296,10 +302,14 @@ class Program
                     player1y += 8;
                 }
 
-                int bossx = 950;
-                int bossy = 200;
+                int attackerxpos = Random.Shared.Next(100, 1800);
+                int attackerypos = 100;
 
-                Raylib.DrawRectangle(bossx, bossy, 100, 100, Color.BLACK);
+                
+
+                Raylib.DrawRectangle(attackerxpos, attackerypos, 25, 25, Color.BLACK);
+
+                attackerypos += 4;
 
 
 
