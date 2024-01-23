@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj": {}
+    "C:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj": {
+    "C:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj",
+        "projectUniqueName": "C:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj",
         "projectName": "Vinterprojekt Adam Lysén TE22D",
-        "projectPath": "c:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj",
+        "projectPath": "C:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\Vinterprojekt Adam Lysén TE22D.csproj",
         "packagesPath": "C:\\Users\\Adam.lysen\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\obj\\",
+        "outputPath": "C:\\Users\\Adam.lysen\\Desktop\\VS CODE\\Vinterprojekt\\Vinterprojekt Adam Lysén TE22D\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
