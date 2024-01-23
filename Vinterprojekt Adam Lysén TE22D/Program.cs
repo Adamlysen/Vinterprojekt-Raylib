@@ -33,6 +33,7 @@ class Program
         bool scenegame1 = false;
         bool scenegame2 = false;
         bool Gameover = false;
+        bool blockmove = false;
         string starttext = "Press SPACE to start!";
         string dnt = "Do not touch the walls!";
         string gm = "GAME OVER";
@@ -44,10 +45,15 @@ class Program
         string currentlevel = "Level ";
         float enemyradius = 50;
 
+        int blockxpos = 600;
+        int blockypos = 850;
+        int blockwidth = 30;
+        int blockheight = 30;
+
 
 
         float levelradius2 = 2500;
-        int[,] grid = {
+        int[,] grid1 = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
@@ -68,12 +74,12 @@ class Program
 
         List<Rectangle> walls = new();
 
-        for (int x = 0; x < grid.GetLength(1); x++)
+        for (int x = 0; x < grid1.GetLength(1); x++)
         {
-            for (int y = 0; y < grid.GetLength(0); y++)
+            for (int y = 0; y < grid1.GetLength(0); y++)
             {
                 // System.Console.WriteLine($"x: {x}, y: {y}");
-                if (grid[y, x] == 1)
+                if (grid1[y, x] == 1)
                 {
                     Rectangle wall = new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize);
                     walls.Add(wall);
@@ -115,6 +121,8 @@ class Program
 
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.DARKGRAY);
+
+                blockmove = true;
 
 
 
@@ -160,6 +168,7 @@ class Program
                 Rectangle point1 = new Rectangle(point1xpos, point1ypos, pointwidth, pointheight);
                 Rectangle point2 = new Rectangle(point2xpos, point2ypos, pointwidth, pointheight);
                 Rectangle point3 = new Rectangle(point3xpos, point3ypos, pointwidth, pointheight);
+                Rectangle block = new Rectangle(blockxpos, blockypos, blockwidth, blockheight);
 
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
                 {
@@ -178,6 +187,7 @@ class Program
 
                 Raylib.DrawCircleV(playercenter, playerradius, Color.BLUE);
                 Raylib.DrawCircleV(enemycenter, enemyradius, Color.PURPLE);
+
 
 
 
@@ -226,8 +236,7 @@ class Program
                 Raylib.DrawRectangleRec(point1, Color.GREEN);
                 Raylib.DrawRectangleRec(point2, Color.GREEN);
                 Raylib.DrawRectangleRec(point3, Color.GREEN);
-                //  Raylib.DrawRectangleRec(enemyRect, Color.BLUE);
-                // Raylib.DrawRectangleRec(playerRect, Color.BLACK);
+                Raylib.DrawRectangleRec(block, Color.BLACK);
 
 
 
@@ -286,6 +295,11 @@ class Program
                 {
                     player1y += 8;
                 }
+
+                int bossx = 950;
+                int bossy = 200;
+
+                Raylib.DrawRectangle(bossx, bossy, 100, 100, Color.BLACK);
 
 
 
