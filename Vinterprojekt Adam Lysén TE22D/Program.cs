@@ -26,6 +26,9 @@ class Program
         int point3ypos = 450;
         int pointwidth = 25;
         int pointheight = 25;
+        int finishx = 600;
+        int finishy = 300;
+        int finishradius = 100;
 
 
         bool movement = true;
@@ -40,6 +43,7 @@ class Program
         string gm = "GAME OVER";
         string res = "Press enter to restart";
         string end = "Press ESC to exit";
+        string win = "YOU WIN";
         int pointamount = 0;
         int levelamount = 1;
         string pointcount = "Points: ";
@@ -180,6 +184,13 @@ class Program
                 {
                     scenegame1 = false;
                     scenegame2 = true;
+
+                    player1x = 150;
+                    player1y = 150;
+                    finishx = 600;
+                    finishy = 300;
+                    finishradius = 100;
+                    playerradius = 50;
                 }
 
 
@@ -210,6 +221,7 @@ class Program
                     {
                         scenegame1 = false;
                         scenegame2 = true;
+                        Gamewin = false;
 
                     }
                     if (levelamount < 2)
@@ -257,14 +269,17 @@ class Program
             while (scenegame2)
             {
                 Raylib.BeginDrawing();
+
+                Vector2 enemycenter = new Vector2(enemyx, enemyy);
+                Vector2 playercenter = new Vector2(player1x, player1y);
+                
                 Raylib.ClearBackground(Color.DARKGRAY);
-                Raylib.DrawCircle(player1x, player1y, levelradius2, Color.PURPLE);
+                
                 if (scenegame2 == true)
                 {
                     levelradius2 -= 50;
                 }
-                Vector2 enemycenter = new Vector2(enemyx, enemyy);
-                Vector2 playercenter = new Vector2(player1x, player1y);
+
 
 
                 //Rectangle playerRect = new Rectangle(player1x, player1y, player1width, player1height);
@@ -303,23 +318,20 @@ class Program
                     player1y += 8;
                 }
 
-                int finishx = 600;
-                int finishy= 300;
-                int finishradius = 100;
-
                 Vector2 finishcenter = new Vector2(finishx, finishy);
 
                 Raylib.DrawCircleV(finishcenter, finishradius, Color.WHITE);
-
+                Raylib.DrawCircleV(playercenter, playerradius, Color.BLUE);
                 bool overlappingfinish = Raylib.CheckCollisionCircles(playercenter, playerradius, finishcenter, finishradius);
 
-                if (overlappingfinish == true)
+                if (overlappingfinish)
                 {
                     finishradius += 50;
                 }
 
-                if (finishradius > 2500)
+                if (finishradius > 3000)
                 {
+                    scenegame2 = false;
                     Gamewin = true;
                 }
 
@@ -372,6 +384,29 @@ class Program
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
                 {
                     return;
+                }
+
+                Raylib.DrawText(res, 700, 600, 40, Color.BLACK);
+                Raylib.DrawText(end, 700, 700, 40, Color.BLACK);
+                Raylib.DrawText(win, 750, 400, 80, Color.BLACK);
+
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
+                {
+                    Gamewin = false;
+                    scenegame1 = true;
+
+                    player1x = 150;
+                    player1y = 150;
+                    enemyradius = 50;
+                    point1xpos = 300;
+                    point1ypos = 885;
+                    point2xpos = 1000;
+                    point2ypos = 135;
+                    point3xpos = 1600;
+                    point3ypos = 450;
+                    pointamount = 0;
+                    levelamount = 1;
+
                 }
 
 
