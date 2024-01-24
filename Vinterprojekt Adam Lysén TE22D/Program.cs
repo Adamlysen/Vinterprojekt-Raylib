@@ -33,6 +33,7 @@ class Program
         bool scenegame1 = false;
         bool scenegame2 = false;
         bool Gameover = false;
+        bool Gamewin = false;
         bool blockmove = false;
         string starttext = "Press SPACE to start!";
         string dnt = "Do not touch the walls!";
@@ -302,7 +303,25 @@ class Program
                     player1y += 8;
                 }
 
-                
+                int finishx = 600;
+                int finishy= 300;
+                int finishradius = 100;
+
+                Vector2 finishcenter = new Vector2(finishx, finishy);
+
+                Raylib.DrawCircleV(finishcenter, finishradius, Color.WHITE);
+
+                bool overlappingfinish = Raylib.CheckCollisionCircles(playercenter, playerradius, finishcenter, finishradius);
+
+                if (overlappingfinish == true)
+                {
+                    finishradius += 50;
+                }
+
+                if (finishradius > 2500)
+                {
+                    Gamewin = true;
+                }
 
 
                 // Raylib.DrawRectangleRec(playerRect, Color.BLACK);
@@ -342,6 +361,20 @@ class Program
                 {
                     return;
                 }
+                Raylib.EndDrawing();
+            }
+
+            while (Gamewin == true)
+            {
+                Raylib.BeginDrawing();
+                Raylib.ClearBackground(Color.GREEN);
+
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
+                {
+                    return;
+                }
+
+
                 Raylib.EndDrawing();
             }
         }
