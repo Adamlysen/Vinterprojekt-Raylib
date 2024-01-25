@@ -173,7 +173,6 @@ class Program
                 Rectangle point1 = new Rectangle(point1xpos, point1ypos, pointwidth, pointheight);
                 Rectangle point2 = new Rectangle(point2xpos, point2ypos, pointwidth, pointheight);
                 Rectangle point3 = new Rectangle(point3xpos, point3ypos, pointwidth, pointheight);
-                Rectangle block = new Rectangle(blockxpos, blockypos, blockwidth, blockheight);
 
                 if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
                 {
@@ -255,7 +254,6 @@ class Program
                 Raylib.DrawRectangleRec(point1, Color.GREEN);
                 Raylib.DrawRectangleRec(point2, Color.GREEN);
                 Raylib.DrawRectangleRec(point3, Color.GREEN);
-                Raylib.DrawRectangleRec(block, Color.BLACK);
 
 
 
